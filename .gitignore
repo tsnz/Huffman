@@ -79,4 +79,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # Custom
-.opendsf
+*.opendsf
