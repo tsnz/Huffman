@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClInclude Include="generateHuffman.h" />
     <ClInclude Include="getFileContent.h" />
+    <ClInclude Include="bitChar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,5 +26,8 @@
     <ClInclude Include="getFileContent.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="bitChar.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

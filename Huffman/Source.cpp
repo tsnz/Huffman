@@ -6,24 +6,38 @@
 #include<stdlib.h>
 
 
-
-
+void encode();
+void decode();
 
 using namespace std;
 
 int main() {
+
+
+	/*
+	ifstream bindateistream;
+	bindateistream.open("D:/test.txt.comp", ios::in | ios::binary);
+	//bindateistream.open("D:/test.txt.comp", ios::binary | ios::in);
+	string outcont;
+	bitChar tempBit;
+	tempBit.readByBits(bindateistream);
+	system("pause");
+	exit(2);
+	*/
+
+
+
 	int inputOption = 0;
-	string pathToFile = "";
 	bool valid = false;
 	while (!valid) {
 		cout << "(1) Encode\n(2) Decode\n";
 		cin >> inputOption;
 		if (inputOption == 1) {
-			cout << "Encode\n";
+			encode();
 			valid = true;
 		}
 		else { if (inputOption == 2) {
-			cout << "Decode\n";
+			decode();
 			valid = true;
 			}
 			else {
@@ -33,11 +47,30 @@ int main() {
 			}
 		}
 	}
-	cout << "Enter path to .txt file:";
-	cin >> pathToFile;
 	
+}
 
-	generateHuffmanTree( getFileContents("D:/test.txt") );
+void encode(void) {
+	string pathToFile = "";
+	cout << "Enter path to .txt file:\n";
+	cin >> pathToFile;
+	generateHuffmanTree(getFileContents(pathToFile), pathToFile);
+}
+
+void decode(void) {
+	string pathToKeyFile = "";
+	string pathToCompFile = "";
+	cout << "Enter path to .key file:\n";
+	cin >> pathToKeyFile;
+	cout << "Enter path to .comp file:\n";
+	cin >> pathToCompFile;
+	vector<vector<string>> codeTable;
+
+	codeTable = restoreHuffmanTree(pathToKeyFile);
+
+	decodeHuffman(codeTable, pathToCompFile, getLineCount(pathToKeyFile));
+
+	system("pause");
 }
 
 
